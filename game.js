@@ -25,7 +25,7 @@ const DIR = {
 // Command display labels
 const CMD_LABELS = {
   move_up:    'Forward',
-  move_down:  'Back',
+  move_down:  'Down',
   move_left:  'Left',
   move_right: 'Right',
   jump_up:    'Jump Up',
