@@ -24,10 +24,10 @@ const DIR = {
 
 // Command display labels
 const CMD_LABELS = {
-  move_up:    'Move Forward (Up)',
-  move_down:  'Move Back (Down)',
-  move_left:  'Move Left',
-  move_right: 'Move Right',
+  move_up:    'Forward',
+  move_down:  'Back',
+  move_left:  'Left',
+  move_right: 'Right',
   jump_up:    'Jump Up',
   jump_down:  'Jump Down',
   jump_left:  'Jump Left',
@@ -36,7 +36,7 @@ const CMD_LABELS = {
 
 const LEVEL_1 = {
   title: 'Level I — The Depths',
-  subtitle: 'Guide Sir Aldric to the dungeon exit.',
+  subtitle: 'Find the way out. There\'s only one.',
   showJump: false,
   grid: [
     ['W','W','W','W','W','W','W'],
@@ -53,7 +53,7 @@ const LEVEL_1 = {
 // Level 2: 9x9, has holes, requires jump commands
 const LEVEL_2 = {
   title: 'Level II — The Abyss',
-  subtitle: 'New danger: holes in the floor. Use Jump to cross them.',
+  subtitle: 'The floor isn\'t all solid — some gaps need a leap.',
   showJump: true,
   grid: [
     ['W','W','W','W','W','W','W','W','W'],
@@ -329,7 +329,7 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric leapt into the dungeon wall and was never seen again.';
+          'Sir Aldric jumped clean off the map.';
         return;
       }
 
@@ -338,7 +338,7 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric crashed into a wall mid-jump. Walls cannot be leapt over.';
+          'Sir Aldric jumped headfirst into a wall.';
         return;
       }
 
@@ -359,7 +359,7 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric landed inside a wall. That should not be possible.';
+          'Sir Aldric landed inside a wall.';
         return;
       }
       if (destTile === T.TRAP) {
@@ -367,14 +367,14 @@ async function runCommands() {
         await sleep(500);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric landed on a trap after jumping. Plan more carefully next time.';
+          'Sir Aldric stuck the landing — right on a trap.';
         return;
       }
       if (destTile === T.HOLE) {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric landed in a hole. A jump must clear the hole entirely.';
+          'That jump didn\'t clear the hole.';
         return;
       }
       if (destTile === T.EXIT) {
@@ -399,7 +399,7 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric walked into the dungeon wall and could not escape.';
+          'Sir Aldric walked right off the edge.';
         return;
       }
 
@@ -409,14 +409,14 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric walked into a wall. His armor did not save him. Check your path and try again.';
+          'Sir Aldric ran straight into a wall.';
         return;
       }
       if (destTile === T.HOLE) {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric fell into a hole in the floor. Use the Jump command to cross holes.';
+          'Sir Aldric dropped straight into the floor.';
         return;
       }
 
@@ -437,7 +437,7 @@ async function runCommands() {
         await sleep(500);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric stepped on a trap. Study the dungeon more carefully.';
+          'Sir Aldric stepped right on a trap.';
         return;
       }
       if (destTile === T.EXIT) {
@@ -450,7 +450,7 @@ async function runCommands() {
 
   // Ran out of commands without reaching exit
   state.running = false;
-  showStatus('Commands complete — but Sir Aldric has not reached the exit yet.', 'info');
+  showStatus('Sir Aldric ran out of commands before reaching the exit.', 'info');
   // NOTE: hasRun stays true — they cannot run again
 }
 
