@@ -329,7 +329,7 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Ronnie jumped clean off the map.';
+          'Sir Ronnie jumped clean off the map. Where he is now, who knows.';
         return;
       }
 
@@ -338,7 +338,7 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Ronnie jumped headfirst into a wall.';
+          'Sir Ronnie jumped headfirst into a wall. Embarrased, he gave up.';
         return;
       }
 
@@ -367,14 +367,14 @@ async function runCommands() {
         await sleep(500);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Ronnie stuck the landing — right on a trap.';
+          'Sir Ronnie stuck the landing...right on a trap.';
         return;
       }
       if (destTile === T.HOLE) {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'That jump didn\'t clear the hole.';
+          'That jump didn\'t clear the hole...';
         return;
       }
       if (destTile === T.EXIT) {
@@ -409,14 +409,14 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Ronnie ran straight into a wall.';
+          'Sir Ronnie ran straight into a wall, bumped his head, and took a little nap.';
         return;
       }
       if (destTile === T.HOLE) {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Ronnie dropped straight into the floor.';
+          'Sir Ronnie dropped straight into the floor. Keep an ear out, you haven\'t heard a splat yet.';
         return;
       }
 
@@ -437,7 +437,7 @@ async function runCommands() {
         await sleep(500);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Ronnie stepped right on a trap.';
+          'Sir Ronnie stepped right on a trap. Spikes are bad.';
         return;
       }
       if (destTile === T.EXIT) {
@@ -450,7 +450,7 @@ async function runCommands() {
 
   // Ran out of commands without reaching exit
   state.running = false;
-  showStatus('Sir Ronnie ran out of commands before reaching the exit.', 'info');
+  showStatus('Sir Ronnie ran out of commands before reaching the exit. He\'s just going to sit down and rest for a while.', 'info');
   // NOTE: hasRun stays true — they cannot run again
 }
 
