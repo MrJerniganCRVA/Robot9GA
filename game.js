@@ -34,10 +34,6 @@ const CMD_LABELS = {
   jump_right: 'Jump Right',
 };
 
-// ── LEVELS ──────────────────────────────────────────────────
-// W=wall, F=floor, T=trap, H=hole, E=exit, K=knight start
-// Level 1: 7x7, no holes, fairly clear path
-
 const LEVEL_1 = {
   title: 'Level I — The Depths',
   subtitle: 'Guide Sir Aldric to the dungeon exit.',
@@ -46,12 +42,11 @@ const LEVEL_1 = {
     ['W','W','W','W','W','W','W'],
     ['W','K','F','F','W','F','W'],
     ['W','W','W','F','W','F','W'],
-    ['W','F','T','F','F','F','W'],
+    ['W','F','F','F','F','F','W'],
     ['W','F','W','W','W','T','W'],
-    ['W','F','F','F','F','E','W'],
-    ['W','W','W','W','W','W','W'],
+    ['W','F','F','F','F','F','W'],
+    ['W','W','W','W','E','W','W'],
   ],
-  // Solution: right, right, down, down, left, left, down, down, right, right, right, right
   successMsg: 'Sir Aldric emerges from the depths. A bonus challenge awaits…',
 };
 
@@ -73,7 +68,24 @@ const LEVEL_2 = {
   ],
   successMsg: 'Sir Aldric escapes Eldenveil forever. The dungeon crumbles behind him.',
 };
-
+const LEVEL_3 = {
+  title: 'Wide Open Spaces',
+  subtitle: 'Just a large room',
+  showJump:true,
+  grid:[
+    ['K', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F'],
+    ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F'],
+    ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F'],
+    ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F'],
+    ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F'],
+    ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F'],
+    ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F'],
+    ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F'],
+    ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F'],
+    ['F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'E'],
+    ],
+  successMsg: 'You didn\'t fall into any of those traps..good for you!'
+};
 const LEVELS = [LEVEL_1, LEVEL_2];
 
 // ── STATE ────────────────────────────────────────────────────
@@ -397,7 +409,7 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric walked into a wall. Check your path and try again.';
+          'Sir Aldric walked into a wall. His armor did not save him. Check your path and try again.';
         return;
       }
       if (destTile === T.HOLE) {
