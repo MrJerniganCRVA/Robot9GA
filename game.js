@@ -47,7 +47,7 @@ const LEVEL_1 = {
     ['W','F','F','F','F','F','W'],
     ['W','W','W','W','E','W','W'],
   ],
-  successMsg: 'Sir Aldric emerges from the depths. A bonus challenge awaits…',
+  successMsg: 'Sir Ronnie emerges from the depths. A bonus challenge awaits…',
 };
 
 // Level 2: 9x9, has holes, requires jump commands
@@ -66,7 +66,7 @@ const LEVEL_2 = {
     ['W','F','F','F','F','F','F','E','W'],
     ['W','W','W','W','W','W','W','W','W'],
   ],
-  successMsg: 'Sir Aldric escapes Eldenveil forever. The dungeon crumbles behind him.',
+  successMsg: 'Sir Ronnie escapes Eldenveil forever. The dungeon crumbles behind him.',
 };
 const LEVEL_3 = {
   title: 'Wide Open Spaces',
@@ -329,7 +329,7 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric jumped clean off the map.';
+          'Sir Ronnie jumped clean off the map.';
         return;
       }
 
@@ -338,7 +338,7 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric jumped headfirst into a wall.';
+          'Sir Ronnie jumped headfirst into a wall.';
         return;
       }
 
@@ -359,7 +359,7 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric landed inside a wall.';
+          'Sir Ronnie landed inside a wall.';
         return;
       }
       if (destTile === T.TRAP) {
@@ -367,7 +367,7 @@ async function runCommands() {
         await sleep(500);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric stuck the landing — right on a trap.';
+          'Sir Ronnie stuck the landing — right on a trap.';
         return;
       }
       if (destTile === T.HOLE) {
@@ -399,7 +399,7 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric walked right off the edge.';
+          'Sir Ronnie walked right off the edge.';
         return;
       }
 
@@ -409,14 +409,14 @@ async function runCommands() {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric ran straight into a wall.';
+          'Sir Ronnie ran straight into a wall.';
         return;
       }
       if (destTile === T.HOLE) {
         await animateFailure(row, col);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric dropped straight into the floor.';
+          'Sir Ronnie dropped straight into the floor.';
         return;
       }
 
@@ -437,7 +437,7 @@ async function runCommands() {
         await sleep(500);
         showScreen('failure');
         document.getElementById('failure-message').textContent =
-          'Sir Aldric stepped right on a trap.';
+          'Sir Ronnie stepped right on a trap.';
         return;
       }
       if (destTile === T.EXIT) {
@@ -450,7 +450,7 @@ async function runCommands() {
 
   // Ran out of commands without reaching exit
   state.running = false;
-  showStatus('Sir Aldric ran out of commands before reaching the exit.', 'info');
+  showStatus('Sir Ronnie ran out of commands before reaching the exit.', 'info');
   // NOTE: hasRun stays true — they cannot run again
 }
 
@@ -459,7 +459,7 @@ function handleSuccess() {
   const level = state.currentLevel;
   if (state.levelIndex < LEVELS.length - 1) {
     // More levels
-    elSuccessTitle.textContent = 'Sir Aldric Escapes!';
+    elSuccessTitle.textContent = 'Sir Ronnie Escapes!';
     elSuccessMsg.textContent   = level.successMsg;
     document.getElementById('btn-next').style.display = '';
     showScreen('success');
