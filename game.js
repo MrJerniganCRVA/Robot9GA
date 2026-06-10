@@ -86,7 +86,7 @@ const LEVEL_3 = {
     ],
   successMsg: 'You didn\'t fall into any of those traps..good for you!'
 };
-const LEVELS = [LEVEL_1, LEVEL_2];
+const LEVELS = [LEVEL_1, LEVEL_2, LEVEL_3];
 
 // ── STATE ────────────────────────────────────────────────────
 let state = {
