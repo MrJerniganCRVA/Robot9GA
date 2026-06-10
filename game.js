@@ -3,11 +3,11 @@
 // ============================================================
 // Tile types
 const T = {
-  FLOOR: 'floor',
-  WALL:  'wall',
-  TRAP:  'trap',
-  HOLE:  'hole',
-  EXIT:  'exit',
+  FLOOR: 'F',
+  WALL:  'W',
+  TRAP:  'T',
+  HOLE:  'H',
+  EXIT:  'E',
 };
 
 // Directions
@@ -24,14 +24,14 @@ const DIR = {
 
 // Command display labels
 const CMD_LABELS = {
-  move_up:    '▲ Move Forward (Up)',
-  move_down:  '▼ Move Back (Down)',
-  move_left:  '◀ Move Left',
-  move_right: '▶ Move Right',
-  jump_up:    '↑ Jump Up',
-  jump_down:  '↑ Jump Down',
-  jump_left:  '↑ Jump Left',
-  jump_right: '↑ Jump Right',
+  move_up:    'Move Forward (Up)',
+  move_down:  'Move Back (Down)',
+  move_left:  'Move Left',
+  move_right: 'Move Right',
+  jump_up:    'Jump Up',
+  jump_down:  'Jump Down',
+  jump_left:  'Jump Left',
+  jump_right: 'Jump Right',
 };
 
 // ── LEVELS ──────────────────────────────────────────────────
