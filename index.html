@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dungeon Escape — CodeRVA</title>
+  <title>Dungeon Escape</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Share+Tech+Mono&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
@@ -14,19 +14,18 @@
   <!-- SCREEN: INTRO -->
   <div id="screen-intro" class="screen active">
     <div class="intro-inner">
-      <p class="intro-eyebrow">CodeRVA Regional High School</p>
       <h1 class="intro-title">Dungeon<br/>Escape</h1>
       <p class="intro-flavour">
-        Sir Aldric is trapped deep beneath the ruins of Eldenveil.<br/>
-        Your group must write his escape — one command at a time.<br/>
+        The good knight Sir Ronnie is trapped deep beneath the ruins of Eldenveil.<br/>
+        Your group must write his escape, one command at a time.<br/>
         <em>You only get one chance to run it.</em>
       </p>
       <div class="intro-rules">
-        <div class="rule"><span>Write your commands, then send Sir Aldric on his way.</span></div>
+        <div class="rule"><span>Write your commands, then send Sir Ronnie on his way.</span></div>
         <div class="rule"><span>Traps and holes will end his run — so think it through first.</span></div>
         <div class="rule"><span>Get him to the exit to clear the level.</span></div>
       </div>
-      <button class="btn-primary" id="btn-start">Send Sir Aldric</button>
+      <button class="btn-primary" id="btn-start">Begin The Jounrey</button>
     </div>
   </div>
 
@@ -38,7 +37,7 @@
       <div class="dungeon-panel">
         <div class="dungeon-header">
           <h2 class="dungeon-title" id="level-title">Level I — The Depths</h2>
-          <p class="dungeon-subtitle" id="level-subtitle">Guide Sir Aldric to the exit.</p>
+          <p class="dungeon-subtitle" id="level-subtitle">Guide Sir Ronnie to the exit.</p>
         </div>
         <div class="grid-wrapper">
           <div id="dungeon-grid" class="dungeon-grid"></div>
@@ -53,7 +52,7 @@
 
         <div class="scroll-container">
           <div class="scroll-header">
-            <span class="scroll-label">Orders for Sir Aldric</span>
+            <span class="scroll-label">Orders for Sir Ronnie</span>
             <button class="btn-clear" id="btn-clear" title="Clear all commands">✕ Clear</button>
           </div>
           <ol id="command-list" class="command-list">
@@ -68,19 +67,19 @@
             <button class="btn-cmd" data-cmd="move_up">▲<span>Forward</span></button>
             <div></div>
             <button class="btn-cmd" data-cmd="move_left">◀<span>Left</span></button>
-            <button class="btn-cmd" data-cmd="move_down">▼<span>Back</span></button>
+            <button class="btn-cmd" data-cmd="move_down">▼<span>Down</span></button>
             <button class="btn-cmd" data-cmd="move_right">▶<span>Right</span></button>
           </div>
 
           <p class="controls-label" id="jump-label" style="display:none;">Special</p>
           <div class="btn-grid special" id="special-btns" style="display:none;">
-            <button class="btn-cmd btn-jump" data-cmd="jump_up">↑<span>Jump Up</span></button>
-            <button class="btn-cmd btn-jump" data-cmd="jump_left">↑<span>Jump Left</span></button>
-            <button class="btn-cmd btn-jump" data-cmd="jump_down">↑<span>Jump Down</span></button>
-            <button class="btn-cmd btn-jump" data-cmd="jump_right">↑<span>Jump Right</span></button>
+            <button class="btn-cmd btn-jump" data-cmd="jump_up"><span>Jump Up</span></button>
+            <button class="btn-cmd btn-jump" data-cmd="jump_left"><span>Jump Left</span></button>
+            <button class="btn-cmd btn-jump" data-cmd="jump_down"><span>Jump Down</span></button>
+            <button class="btn-cmd btn-jump" data-cmd="jump_right"><span>Jump Right</span></button>
           </div>
 
-          <button class="btn-run" id="btn-run">⚡ Run Commands</button>
+          <button class="btn-run" id="btn-run">Run Commands</button>
         </div>
 
       </div>
@@ -90,16 +89,16 @@
   <!-- SCREEN: SUCCESS -->
   <div id="screen-success" class="screen">
     <div class="result-inner">
-      <h2 class="result-title" id="success-title">Sir Aldric Escapes!</h2>
+      <h2 class="result-title" id="success-title">Sir Ronnie Escapes!</h2>
       <p class="result-message" id="success-message">Your commands led him to safety.</p>
-      <button class="btn-primary" id="btn-next">Continue →</button>
+      <button class="btn-primary" id="btn-next">Continue</button>
     </div>
   </div>
 
   <!-- SCREEN: FAILURE -->
   <div id="screen-failure" class="screen">
     <div class="result-inner">
-      <h2 class="result-title">Sir Aldric Falls…</h2>
+      <h2 class="result-title">Sir Ronnie Falls…</h2>
       <p class="result-message" id="failure-message">Your commands led him to his doom.</p>
       <button class="btn-primary" id="btn-retry-disabled" disabled>The dungeon seals shut.</button>
     </div>
@@ -108,8 +107,8 @@
   <!-- SCREEN: COMPLETE -->
   <div id="screen-complete" class="screen">
     <div class="result-inner">
-      <h2 class="result-title">Eldenveil is Free!</h2>
-      <p class="result-message">Sir Aldric made it out.</p>
+      <h2 class="result-title">You Did It!</h2>
+      <p class="result-message">Sir Ronnie made it out.</p>
       <p class="complete-reflection">
         Before you sent him a single step, you had to work out the whole path — break it into pieces, get them in the right order, and trust the sequence to run. That's computational thinking, and that's exactly what you'll keep doing in CS at CodeRVA.
       </p>
